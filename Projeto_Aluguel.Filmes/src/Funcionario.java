@@ -23,4 +23,52 @@ public class Funcionario extends Pessoa implements IPessoa{
         System.out.println("CPF: " + CPF);
         System.out.println("Guichê: " + guiche);
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public String getCPF() {
+        return CPF;
+    }
+
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
+    }
+
+    public int getCod() {
+        return cod;
+    }
+
+    public void setCod(int cod) {
+        this.cod = cod;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    public int getGuiche() {
+        return guiche;
+    }
+
+    public void setGuiche(int guiche) {
+        this.guiche = guiche;
+    }
 }
