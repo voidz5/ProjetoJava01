@@ -21,7 +21,7 @@ public class Funcionario extends Pessoa implements IPessoa{
         System.out.println("Código: " + cod);
         System.out.println("Salário: " + salario);
         System.out.println("CPF: " + CPF);
-        System.out.println("legal: " + guiche);
+        System.out.println("Guichê: " + guiche);
     }
 
     public String getNome() {
