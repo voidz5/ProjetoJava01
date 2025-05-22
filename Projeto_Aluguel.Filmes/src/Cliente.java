@@ -3,6 +3,7 @@ public class Cliente extends Pessoa implements IPessoa{
     private int idade;
     private String CPF;
     private char sexo;
+    private int num;
     private String email;
 
     public Cliente(String nome, int idade, String CPF, char sexo, String email) {
