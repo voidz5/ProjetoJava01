@@ -1,4 +1,4 @@
-public class Produto {
+public class Produto implements IProduto{
     private String descricao;
     private double preco;
     private String nome;
@@ -6,13 +6,23 @@ public class Produto {
     private String genero;
     private boolean disponibilidade;
 
-    public Produto(String descricao, double preco, String nome, boolean disponibilidade, boolean emCartaz, String genero) {
+    public Produto(String nome, String descricao, double preco, String genero, boolean disponibilidade, boolean emCartaz) {
+        this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
-        this.nome = nome;
+        this.genero = genero;
         this.disponibilidade = disponibilidade;
         this.emCartaz = emCartaz;
-        this.genero = genero;
+    }
+
+    @Override
+    public void exibir() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Descrição: " + descricao);
+        System.out.println("Preço: " + preco);
+        System.out.println("Gênero: " + genero);
+        System.out.println("Está disponível: " + disponibilidade);
+        System.out.println("Está em Cartaz: " + emCartaz);
     }
 
     public String getDescricao() {
@@ -62,4 +72,6 @@ public class Produto {
     public void setEmCartaz(boolean emCartaz) {
         this.emCartaz = emCartaz;
     }
+
+
 }
