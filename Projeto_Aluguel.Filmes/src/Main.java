@@ -8,6 +8,7 @@ public class Main {
         int respC;
         int respF;
         int respP;
+        int respPesq;
         boolean x = true;
 
         ArrayList<Pessoa> listc = new ArrayList<Pessoa>();
@@ -190,6 +191,7 @@ public class Main {
                                 "1 - Adicionar\n" +
                                 "2 - Excluir\n" +
                                 "3 - Mostrar\n" +
+                                "4 - Pesquisar\n" +
                                 "0 - Voltar");
                         respP = teclado.nextInt();
                         teclado.nextLine();
@@ -210,7 +212,9 @@ public class Main {
                                     boolean disponibilidade = teclado.nextBoolean();
                                     System.out.println("Produto está em cartaz? (true/false)");
                                     boolean emCartaz = teclado.nextBoolean();
-                                    Produto p = new Produto(nome, descricao, preco, genero, disponibilidade, emCartaz);
+                                    System.out.println("Digite o código do produto: ");
+                                    int cod = teclado.nextInt();
+                                    Produto p = new Produto(nome, descricao, preco, genero, disponibilidade, emCartaz, cod);
                                     listp.add(p);
                                     System.out.println("Deseja adicionar outro produto? (S/N)");
                                     teclado.nextLine();
@@ -241,9 +245,106 @@ public class Main {
                                     p.exibir();
                                 }
                                 break;
+
+
+
+
+
+                                //feito pelo Jõãõ
+
+
+
+
+
+
+                            case 4:
+                                do{
+                                    System.out.println("Qual método de pesquisa você deseja utilizar?\n" +
+                                            "1 - Busca por descrição\n" +
+                                            "2 - Busca por código\n" +
+                                            "3 - Busca por disponibilidade\n" +
+                                            "0 - Voltar");
+                                    respPesq = teclado.nextInt();
+                                    teclado.nextLine(); // Limpar buffer
+
+                                    switch (respPesq) {
+                                        case 1:
+                                            System.out.println("Digite parte da descrição:");
+                                            String descBusca = teclado.nextLine().toLowerCase();
+                                            boolean encontrouDesc = false;
+                                            for (Produto ps : listp) {
+                                                if (ps.getDescricao().toLowerCase().contains(descBusca)) {
+                                                    ps.exibir();
+                                                    encontrouDesc = true;
+                                                }
+                                            }
+                                            if (!encontrouDesc) {
+                                                System.out.println("Nenhum produto/serviço encontrado com essa descrição.");
+                                            }
+                                            break;
+
+                                        case 2:
+                                            System.out.println("Digite o código:");
+                                            int codigoBusca = teclado.nextInt();
+                                            boolean encontrouCod = false;
+                                            for (Produto ps : listp) {
+                                                if (ps.getCod() == codigoBusca) {
+                                                    ps.exibir();
+                                                    encontrouCod = true;
+                                                    break;
+                                                }
+                                            }
+                                            if (!encontrouCod) {
+                                                System.out.println("Nenhum produto/serviço encontrado com esse código.");
+                                            }
+                                            break;
+
+                                        case 3:
+                                            System.out.println("Buscar por:\n1 - Disponível\n2 - Indisponível");
+                                            int dispBusca = teclado.nextInt();
+                                            boolean disponibilidade = (dispBusca == 1);
+                                            boolean encontrouDisp = false;
+                                            for (Produto ps : listp) {
+                                                if (ps.isDisponibilidade() == disponibilidade) {
+                                                    ps.exibir();
+                                                    encontrouDisp = true;
+                                                }
+                                            }
+                                            if (!encontrouDisp) {
+                                                System.out.println("Nenhum produto/serviço encontrado com essa disponibilidade.");
+                                            }
+                                            break;
+
+
+                                    }
+                                }while (respPesq!=0);
+                                break;
+
                         }
                     } while (respP != 0);
                     break;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 case 0:
                     System.out.println("Saindo...");
