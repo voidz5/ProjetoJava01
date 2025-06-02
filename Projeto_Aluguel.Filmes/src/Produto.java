@@ -3,16 +3,18 @@ public class Produto implements IProduto{
     private double preco;
     private String nome;
     private boolean emCartaz;
+    private int cod;
     private String genero;
     private boolean disponibilidade;
 
-    public Produto(String nome, String descricao, double preco, String genero, boolean disponibilidade, boolean emCartaz) {
+    public Produto(String nome, String descricao, double preco, String genero, boolean disponibilidade, boolean emCartaz, int cod) {
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
         this.genero = genero;
         this.disponibilidade = disponibilidade;
         this.emCartaz = emCartaz;
+        this.cod = cod;
     }
 
     @Override
@@ -23,6 +25,7 @@ public class Produto implements IProduto{
         System.out.println("Gênero: " + genero);
         System.out.println("Está disponível: " + disponibilidade);
         System.out.println("Está em Cartaz: " + emCartaz);
+        System.out.println("Código: " + cod);
     }
 
     public String getDescricao() {
@@ -51,6 +54,14 @@ public class Produto implements IProduto{
 
     public String getGenero() {
         return genero;
+    }
+
+    public int getCod() {
+        return cod;
+    }
+
+    public void setCod(int cod) {
+        this.cod = cod;
     }
 
     public void setGenero(String genero) {
